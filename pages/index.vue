@@ -360,6 +360,7 @@ margin: 0; margin-top: 24px">
     margin: 0;
     padding: 0;
 }
+
 .page {
     background: linear-gradient(to bottom, #B2DAFF, #F2F5FD);
     min-height: 100vh;
