@@ -95,7 +95,7 @@ export default {
           <h1 class="h1_ksu">Импортозамещение всех элементов
             инфраструктуры</h1>
           <div class="cards">
-            <vue-cards v-for="(card, index) in cards" :index="index" :card="card"/>
+            <vue-cards v-for="(card, index) in cards" :index="index"  :card="card"/>
           </div>
         </div>
         <div class="animation import-substitution" style="display: flex; flex-direction: column; align-items: center">
@@ -677,7 +677,13 @@ margin: 0; margin-top: 24px">
   justify-content: center;
 }
 .card_form:hover{
-  box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-20px);
+}
+
+:deep(){
+  .block{
+  background-color: #1a1b50;
+}
 }
 </style>

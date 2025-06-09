@@ -18,7 +18,7 @@
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-  <div class="block" style="background-color: white; border-radius: 28px"
+  <div class="block" style="border-radius: 28px"
     :class="{'down_one':(this.index===1||this.index===3), 'down_second':(this.index===2)}"
   >
     <i class="fa-solid" :class="this.card.svg" style="font-size: 40pt"></i>
