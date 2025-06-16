@@ -19,7 +19,8 @@ const wrong = ref(false);
 const emit = defineEmits(['close'])
 
 function close(){
-  emit('close', false)
+  emit('close', false);
+  wrong.value = false;
 }
 
 function send(){
@@ -40,7 +41,7 @@ function send(){
 
     }
   } else {
-    text.value = 'Пожалуйста заполните все обязательные(*) поля'
+    text.value = 'Пожалуйста заполните все обязательные поля'
     wrong.value = true;
   }
 }
@@ -52,19 +53,23 @@ function send(){
       <h1>Заказать консультацию</h1>
       <div class="input">
         <label class="modal_label">Имя<span>*</span></label>
-        <input type="text" v-model="name.value">
+        <input type="text" v-model="name.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Компания<span>*</span></label>
-        <input type="text" v-model="company.value">
+        <input type="text" v-model="company.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Телефон<span>*</span></label>
-        <input type="tel" v-model="number.value" placeholder="+7 (">
+        <input type="tel" v-model="number.value" placeholder="+7 ("
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">E-mail<span>*</span></label>
-        <input type="email" v-model="email.value">
+        <input type="email" v-model="email.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Сообщение</label>
@@ -128,6 +133,9 @@ function send(){
     border: 1px solid #f2f5fd;
     background-color: #f2f5fd;
     width: 70%;
+  }
+  .wrong_input{
+    border-color: #DE3131;
   }
 
   h1{
