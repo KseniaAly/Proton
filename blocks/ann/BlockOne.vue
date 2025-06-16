@@ -1,4 +1,14 @@
 <script setup>
+import ModalWindow from "~/components/ksy/ModalWindow.vue";
+const openWindow = ref(false);
+
+function closeWindow(value){
+  openWindow.value = value;
+}
+function openModal(){
+  openWindow.value = true;
+}
+
 import { ref } from 'vue';
 
 const isMenuOpen = ref(false);
@@ -21,7 +31,7 @@ const isMenuOpen = ref(false);
             <a href="#">Блог</a>
             <a href="tel:+78312621876">+7 (831) 262-18-76</a>
             <a href="mailto:sales@proton-group.ru">sales@proton-group.ru</a>
-            <button class="btn-outline">Заказать консультацию</button>
+            <button @click="openModal" class="btn-outline">Заказать консультацию</button>
           </nav>
 
         </div>
@@ -46,7 +56,7 @@ const isMenuOpen = ref(false);
 
         <div class="bottom-row">
           <div class="buttons">
-            <button class="btn-primary">Заказать консультацию</button>
+            <button @click="openModal" class="btn-primary">Заказать консультацию</button>
             <a href="#" class="case-link">Читать кейс</a>
           </div>
           <p class="description">
@@ -56,6 +66,7 @@ const isMenuOpen = ref(false);
       </div>
     </section>
   </div>
+  <modal-window :open="openWindow" @close="closeWindow"/>
 </template>
 
 <style scoped>

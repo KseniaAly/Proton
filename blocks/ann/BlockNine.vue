@@ -1,5 +1,6 @@
 <script setup>
 import CardPeople from "~/components/ann/Card-people.vue";
+import CardModal from "~/components/ksy/CardModal.vue";
 </script>
 
 <template>
@@ -83,6 +84,8 @@ import CardPeople from "~/components/ann/Card-people.vue";
             <a href="#" class="content-link">Переход на процессное управление. Кейс сети аптек «Максавит» ↗</a>
           </template>
         </card-people>
+
+        <card-modal/>
       </div>
     </div>
   </div>
