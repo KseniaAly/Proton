@@ -1,46 +1,39 @@
-<script>
+<script setup>
+import {ref, onMounted} from "vue";
+
 import VueCards from "~/components/ksy/VueCards.vue";
- export default {
-  components:{
-    VueCards
-  },
-   data(){
-     return{
-       cards: [
-         {text: '1С: Перевод СУБД на PostgreSQL. Перевод серверов приложений 1С на Linux', svg: 'fa-server'},
-         {text: 'Инфраструктура рабочих мест', svg: 'fa-desktop'},
-         {text: 'Унифицированные коммуникации', svg: 'fa-comment'},
-         {text: 'Централизованное управление конфигурациями и пользователями', svg: 'fa-sliders'},
-         {text: 'Миграции инфраструктуры из AWS, GCP, Azure в Яндекс.Облако или SberCloud', svg: 'fa-cloud'}
-       ]
-     }
-   },
-   methods:{
-     scroll(){
-       let options = {
-         root: null,
-         rootMargin: '5px',
-         threshold: 0.5
-       }
-       let callback = function (entries, observer){
-         entries.forEach(entry => {
-           if (entry.isIntersecting){
-             console.log('find', entry);
-             entry.target.classList.add('active');
-           }
-         })
-       }
-       let observer = new IntersectionObserver(callback, options)
-       let target = document.querySelectorAll('.animation')
-       target.forEach(target=>{
-         observer.observe(target);
-       })
-     }
-   },
-   mounted() {
-     this.scroll();
-   }
- }
+
+const cards = ref([
+  {text: '1С: Перевод СУБД на PostgreSQL. Перевод серверов приложений 1С на Linux', svg: 'fa-server'},
+  {text: 'Инфраструктура рабочих мест', svg: 'fa-desktop'},
+  {text: 'Унифицированные коммуникации', svg: 'fa-comment'},
+  {text: 'Централизованное управление конфигурациями и пользователями', svg: 'fa-sliders'},
+  {text: 'Миграции инфраструктуры из AWS, GCP, Azure в Яндекс.Облако или SberCloud', svg: 'fa-cloud'}
+])
+
+function scroll(){
+  let options = {
+    root: null,
+    rootMargin: '5px',
+    threshold: 0.5
+  }
+  let callback = function (entries, observer){
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        console.log('find', entry);
+        entry.target.classList.add('active');
+      }
+    })
+  }
+  let observer = new IntersectionObserver(callback, options)
+  let target = document.querySelectorAll('.animation')
+  target.forEach(target=>{
+    observer.observe(target);
+  })
+}
+onMounted(()=>{
+  scroll();
+})
 </script>
 
 <template>

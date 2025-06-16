@@ -1,31 +1,30 @@
-<script>
-export default {
-   methods:{
-     scroll(){
-       let options = {
-         root: null,
-         rootMargin: '5px',
-         threshold: 0.5
-       }
-       let callback = function (entries, observer){
-         entries.forEach(entry => {
-           if (entry.isIntersecting){
-             console.log('find', entry);
-             entry.target.classList.add('active');
-           }
-         })
-       }
-       let observer = new IntersectionObserver(callback, options)
-       let target = document.querySelectorAll('.animation')
-       target.forEach(target=>{
-         observer.observe(target);
-       })
-     }
-   },
-   mounted() {
-     this.scroll();
-   }
- }
+<script setup>
+import {onMounted} from "vue";
+
+function scroll(){
+  let options = {
+    root: null,
+    rootMargin: '5px',
+    threshold: 0.5
+  }
+  let callback = function (entries, observer){
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        console.log('find', entry);
+        entry.target.classList.add('active');
+      }
+    })
+  }
+  let observer = new IntersectionObserver(callback, options)
+  let target = document.querySelectorAll('.animation')
+  target.forEach(target=>{
+    observer.observe(target);
+  })
+}
+
+onMounted(()=>{
+  scroll();
+})
 </script>
 
 <template>
