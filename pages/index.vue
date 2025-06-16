@@ -4,7 +4,7 @@
   import BlockTwo from "~/blocks/mp/BlockTwo.vue";
   import BlockFour from "~/blocks/mp/BlockFour.vue";
   import BlockTen from "~/blocks/mp/BlockTen.vue";
-  import BlockOne from "~/blocks/mp/BlockOne.vue";
+  import BlockOne from "~/blocks/ann/BlockOne.vue";
   import BlockFive from "~/blocks/ann/BlockFive.vue";
   import BlockSix from "~/blocks/ann/BlockSix.vue";
   import BlockSeven from "~/blocks/ann/BlockSeven.vue";
