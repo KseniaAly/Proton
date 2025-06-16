@@ -683,7 +683,7 @@ margin: 0; margin-top: 24px">
 
 :deep(){
   .block{
-  background-color: #1a1b50;
+  background-color: white;
 }
 }
 </style>
