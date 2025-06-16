@@ -1,5 +1,5 @@
 <script>
- export default {
+export default {
    methods:{
      scroll(){
        let options = {
