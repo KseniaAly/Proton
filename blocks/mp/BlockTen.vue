@@ -64,7 +64,6 @@ onMounted(() => {
   margin: 0 auto;
   padding: 20px;
   overflow-x: hidden;
-  border-bottom: 1px solid gray;
 }
 
 .section-title {
