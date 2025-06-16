@@ -30,7 +30,6 @@ onMounted(()=>{
 <template>
   <div class="section">
     <div class="container">
-      <div class="line first"></div>
       <div class="animation quote">
         <div class="column">
           <div style="margin-bottom: 48px">
@@ -80,6 +79,7 @@ onMounted(()=>{
 }
 .container{
   width: 90%;
+  padding-top: 50px;
 }
 .line{
   background-color: #151515;
