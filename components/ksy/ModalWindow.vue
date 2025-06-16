@@ -16,8 +16,10 @@ const message = ref('');
 const text = ref('');
 const wrong = ref(false);
 
+const emit = defineEmits(['close'])
+
 function close(){
-  this.$emit('close', false)
+  emit('close', false)
 }
 
 function send(){
@@ -26,7 +28,7 @@ function send(){
     wrong.value = false;
     if (regEmail.test(email.value)){
       wrong.value = false;
-      this.$emit('close', false)
+      emit('close', false)
       name.value = '';
       company.value = '';
       number.value = '';
