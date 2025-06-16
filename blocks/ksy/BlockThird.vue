@@ -1,46 +1,39 @@
-<script>
+<script setup>
+import {ref, onMounted} from "vue";
+
 import VueCards from "~/components/ksy/VueCards.vue";
- export default {
-  components:{
-    VueCards
-  },
-   data(){
-     return{
-       cards: [
-         {text: '1С: Перевод СУБД на PostgreSQL. Перевод серверов приложений 1С на Linux', svg: 'fa-server'},
-         {text: 'Инфраструктура рабочих мест', svg: 'fa-desktop'},
-         {text: 'Унифицированные коммуникации', svg: 'fa-comment'},
-         {text: 'Централизованное управление конфигурациями и пользователями', svg: 'fa-sliders'},
-         {text: 'Миграции инфраструктуры из AWS, GCP, Azure в Яндекс.Облако или SberCloud', svg: 'fa-cloud'}
-       ]
-     }
-   },
-   methods:{
-     scroll(){
-       let options = {
-         root: null,
-         rootMargin: '5px',
-         threshold: 0.5
-       }
-       let callback = function (entries, observer){
-         entries.forEach(entry => {
-           if (entry.isIntersecting){
-             console.log('find', entry);
-             entry.target.classList.add('active');
-           }
-         })
-       }
-       let observer = new IntersectionObserver(callback, options)
-       let target = document.querySelectorAll('.animation')
-       target.forEach(target=>{
-         observer.observe(target);
-       })
-     }
-   },
-   mounted() {
-     this.scroll();
-   }
- }
+
+const cards = ref([
+  {text: '1С: Перевод СУБД на PostgreSQL. Перевод серверов приложений 1С на Linux', svg: 'fa-server'},
+  {text: 'Инфраструктура рабочих мест', svg: 'fa-desktop'},
+  {text: 'Унифицированные коммуникации', svg: 'fa-comment'},
+  {text: 'Централизованное управление конфигурациями и пользователями', svg: 'fa-sliders'},
+  {text: 'Миграции инфраструктуры из AWS, GCP, Azure в Яндекс.Облако или SberCloud', svg: 'fa-cloud'}
+])
+
+function scroll(){
+  let options = {
+    root: null,
+    rootMargin: '5px',
+    threshold: 0.5
+  }
+  let callback = function (entries, observer){
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        console.log('find', entry);
+        entry.target.classList.add('active');
+      }
+    })
+  }
+  let observer = new IntersectionObserver(callback, options)
+  let target = document.querySelectorAll('.animation')
+  target.forEach(target=>{
+    observer.observe(target);
+  })
+}
+onMounted(()=>{
+  scroll();
+})
 </script>
 
 <template>
@@ -54,16 +47,16 @@ import VueCards from "~/components/ksy/VueCards.vue";
       </div>
       <div class="animation import-substitution column images">
         <div class="row">
-          <img src="./img/postgresql.svg">
-          <img src="./img/debian.svg">
-          <img src="./img/basealt.svg">
-          <img src="./img/astra-linux.svg">
-          <img src="./img/linux.svg">
+          <img src="/img/postgresql.svg">
+          <img src="/img/debian.svg">
+          <img src="/img/basealt.svg">
+          <img src="/img/astra-linux.svg">
+          <img src="/img/linux.svg">
         </div>
         <div class="row">
-          <img src="./img/libreoffice.svg">
-          <img src="./img/jitsy.svg">
-          <img src="./img/rocket.chat.svg">
+          <img src="/img/libreoffice.svg">
+          <img src="/img/jitsy.svg">
+          <img src="/img/rocket.chat.svg">
         </div>
       </div>
       <p>Внедряем отечественное и свободное программное обеспечение</p>

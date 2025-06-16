@@ -1,50 +1,50 @@
-<script>
-  export default {
-    props:{
-      open:{
-        type: Boolean,
-        required:true
-      }
-    },
-    data(){
-      return{
-        name: '',
-        company: '',
-        number: '',
-        email: '',
-        message: '',
-        wrong: false,
-        text: '',
-      }
-    },
-    methods:{
-      close(){
-        this.$emit('close', false)
-      },
-      send(){
-        let regEmail = /[a-zA-Z0-9]+@{1}((yandex.ru)|(gmail.com)|(mail.ru))$/;
-        if (this.name!=='' && this.company!=='' && this.number!=='' && this.email!==''){
-          this.wrong = false;
-          if (regEmail.test(this.email)){
-            this.wrong = false;
-            this.$emit('close', false)
-            this.name = '';
-            this.company = '';
-            this.number='';
-            this.email = '';
-            this.message = '';
-          } else {
-            this.text = 'Пожалуйста заполните поле email правильно'
-            this.wrong = true;
+<script setup>
+import {ref} from "vue";
 
-          }
-        } else {
-          this.text = 'Пожалуйста заполните все обязательные(*) поля'
-          this.wrong = true;
-        }
-      }
-    }
+defineProps({
+  open:{
+    type: Boolean,
+    required:true
   }
+})
+
+const name = ref('');
+const company = ref('');
+const number = ref('');
+const email = ref('');
+const message = ref('');
+const text = ref('');
+const wrong = ref(false);
+
+const emit = defineEmits(['close'])
+
+function close(){
+  emit('close', false);
+  wrong.value = false;
+}
+
+function send(){
+  let regEmail = /[a-zA-Z0-9]+@{1}((yandex.ru)|(gmail.com)|(mail.ru))$/;
+  if (name.value!=='' && company.value!=='' && number.value!=='' && email.value!==''){
+    wrong.value = false;
+    if (regEmail.test(email.value)){
+      wrong.value = false;
+      emit('close', false)
+      name.value = '';
+      company.value = '';
+      number.value = '';
+      email.value = '';
+      message.value = '';
+    } else {
+      text.value = 'Пожалуйста заполните поле email правильно'
+      wrong.value = true;
+
+    }
+  } else {
+    text.value = 'Пожалуйста заполните все обязательные поля'
+    wrong.value = true;
+  }
+}
 </script>
 
 <template>
@@ -53,23 +53,27 @@
       <h1>Заказать консультацию</h1>
       <div class="input">
         <label class="modal_label">Имя<span>*</span></label>
-        <input type="text" v-model="this.name">
+        <input type="text" v-model="name.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Компания<span>*</span></label>
-        <input type="text" v-model="this.company">
+        <input type="text" v-model="company.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Телефон<span>*</span></label>
-        <input type="tel" v-model="this.number" placeholder="+7 (">
+        <input type="tel" v-model="number.value" placeholder="+7 ("
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">E-mail<span>*</span></label>
-        <input type="email" v-model="this.email">
+        <input type="email" v-model="email.value"
+               :class="{wrong_input: wrong}">
       </div>
       <div class="input">
         <label class="modal_label">Сообщение</label>
-        <input type="text" v-model="this.message">
+        <input type="text" v-model="message.value">
       </div>
       <div style="display: flex">
         <p style="color: #151515; font-size: 16px; font-family: Onest, Arial, sans-serif">
@@ -81,7 +85,7 @@
         <button @click="send" type="button">Заказать</button>
       </div>
       <div class="wrong" v-if="wrong">
-        <p>{{this.text}}</p>
+        <p>{{text}}</p>
       </div>
     </form>
   </div>
@@ -129,6 +133,9 @@
     border: 1px solid #f2f5fd;
     background-color: #f2f5fd;
     width: 70%;
+  }
+  .wrong_input{
+    border-color: #DE3131;
   }
 
   h1{

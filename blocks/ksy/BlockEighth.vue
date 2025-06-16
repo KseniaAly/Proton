@@ -1,31 +1,30 @@
-<script>
- export default {
-   methods:{
-     scroll(){
-       let options = {
-         root: null,
-         rootMargin: '5px',
-         threshold: 0.5
-       }
-       let callback = function (entries, observer){
-         entries.forEach(entry => {
-           if (entry.isIntersecting){
-             console.log('find', entry);
-             entry.target.classList.add('active');
-           }
-         })
-       }
-       let observer = new IntersectionObserver(callback, options)
-       let target = document.querySelectorAll('.animation')
-       target.forEach(target=>{
-         observer.observe(target);
-       })
-     }
-   },
-   mounted() {
-     this.scroll();
-   }
- }
+<script setup>
+import {onMounted} from "vue";
+
+function scroll(){
+  let options = {
+    root: null,
+    rootMargin: '5px',
+    threshold: 0.5
+  }
+  let callback = function (entries, observer){
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        console.log('find', entry);
+        entry.target.classList.add('active');
+      }
+    })
+  }
+  let observer = new IntersectionObserver(callback, options)
+  let target = document.querySelectorAll('.animation')
+  target.forEach(target=>{
+    observer.observe(target);
+  })
+}
+
+onMounted(()=>{
+  scroll();
+})
 </script>
 
 <template>
@@ -35,7 +34,7 @@
       <div class="animation quote">
         <div class="column">
           <div style="margin-bottom: 48px">
-            <img class="logo" src="./img/Vector.svg">
+            <img class="logo" src="/img/Vector.svg">
             <p>Мы не внедряем коробочные версии, чтобы получить бонус от Франчайзи, а предлагаем индивидуальное решение под задачи бизнеса с учетом IT-ландшафта нашего клиента, даже если это нам невыгодно в краткосрочной перспективе.</p>
           </div>
           <div>
@@ -54,7 +53,7 @@
         </div>
         <div class="column person">
           <div class="image">
-            <img src="./img/Malov.png">
+            <img src="/img/Malov.png">
           </div>
           <h3>Антон Малов</h3>
           <p>Директор ООО «Протон»</p>

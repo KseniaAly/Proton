@@ -1,23 +1,16 @@
-<script>
+<script setup>
+import {ref} from "vue";
+
 import ModalWindow from "~/components/ksy/ModalWindow.vue";
- export default {
-  components:{
-    ModalWindow
-  },
-   data(){
-     return{
-       openWindow: false,
-     }
-   },
-   methods:{
-     closeWindow(value){
-       this.openWindow = value;
-     },
-     openModal(){
-       this.openWindow = true;
-     }
-   }
- }
+
+const openWindow = ref(false);
+
+function closeWindow(value){
+  openWindow.value = value;
+}
+function openModal(){
+  openWindow.value = true;
+}
 </script>
 
 <template>
