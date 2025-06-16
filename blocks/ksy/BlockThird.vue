@@ -54,16 +54,16 @@ import VueCards from "~/components/ksy/VueCards.vue";
       </div>
       <div class="animation import-substitution column images">
         <div class="row">
-          <img src="./img/postgresql.svg">
-          <img src="./img/debian.svg">
-          <img src="./img/basealt.svg">
-          <img src="./img/astra-linux.svg">
-          <img src="./img/linux.svg">
+          <img src="/img/postgresql.svg">
+          <img src="/img/debian.svg">
+          <img src="/img/basealt.svg">
+          <img src="/img/astra-linux.svg">
+          <img src="/img/linux.svg">
         </div>
         <div class="row">
-          <img src="./img/libreoffice.svg">
-          <img src="./img/jitsy.svg">
-          <img src="./img/rocket.chat.svg">
+          <img src="/img/libreoffice.svg">
+          <img src="/img/jitsy.svg">
+          <img src="/img/rocket.chat.svg">
         </div>
       </div>
       <p>Внедряем отечественное и свободное программное обеспечение</p>

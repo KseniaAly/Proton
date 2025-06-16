@@ -26,7 +26,7 @@ export default {
       <div class="line" style="margin-bottom: 60px"></div>
       <div class="footer" style="display: flex; justify-content: space-between; align-items: start">
         <div class="row links">
-          <img src="./img/proton-logo.svg">
+          <img src="/img/proton-logo.svg">
           <div class="column">
             <a>Блог</a>
             <a>Согласие на обработку данных</a>
@@ -47,10 +47,10 @@ export default {
           <div class="column tel" style="display: flex; flex-direction: column; align-items: end">
             <button class="button" @click="openModal">Заказать консультацию</button>
             <div style="display: flex; align-items: center; justify-content: right">
-              <a style="padding: 16px"><img src="./img/vk.svg"></a>
-              <a style="padding: 16px"><img src="./img/youtube.svg"></a>
-              <a style="padding: 16px"><img src="./img/telegram.svg"></a>
-              <a style="padding: 16px"><img src="./img/gandiva.svg"></a>
+              <a style="padding: 16px"><img src="/img/vk.svg"></a>
+              <a style="padding: 16px"><img src="/img/youtube.svg"></a>
+              <a style="padding: 16px"><img src="/img/telegram.svg"></a>
+              <a style="padding: 16px"><img src="/img/gandiva.svg"></a>
             </div>
           </div>
         </div>
