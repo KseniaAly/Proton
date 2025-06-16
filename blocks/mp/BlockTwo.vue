@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onUnmounted } from "vue";
+import { onMounted, onUnmounted } from "#imports";
 
 const animateOnScroll = () => {
   const cards = document.querySelectorAll('.cards:not(.slide-in)');
