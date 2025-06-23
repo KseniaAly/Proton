@@ -27,11 +27,11 @@ function down(element) {
         crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
   <div class="block animation import-substitution" @mouseenter="hover" @mouseleave="down"
-       :class="{'down_one':(this.index===1||this.index===3), 'down_second':(this.index===2),
-    'delay_first':(this.index===1), 'delay_second':(this.index===2), 'delay_third':(this.index===3),
-    'delay_four':(this.index===4)}">
-    <i class="fa-solid" :class="this.card.svg" @mouseover.stop></i>
-    <p @mouseover.stop>{{ this.card.text }}</p>
+       :class="{'down_one':(index===1||index===3), 'down_second':(index===2),
+    'delay_first':(index===1), 'delay_second':(index===2), 'delay_third':(index===3),
+    'delay_four':(index===4)}">
+    <i class="fa-solid" :class="card.svg" @mouseover.stop></i>
+    <p @mouseover.stop>{{ card.text }}</p>
   </div>
 </template>
 
