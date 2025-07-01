@@ -68,7 +68,7 @@ onMounted(() => {
 
 .section-title {
   font-size: 48px;
-  font-weight: 400;
+  font-weight: 300;
   color: #333;
   line-height: 1.2;
 }
