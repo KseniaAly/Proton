@@ -10,7 +10,7 @@ import Spokes from "~/components/ann/Spokes.vue";
       <card-info>
         <template #left>
           <h1 class="hs7">IT-инфраструктура</h1>
-          <img src="./img/illustration1.png" alt="">
+          <img src="/img/illustration1.png" alt="">
         </template>
         <template #right>
           <spokes
@@ -47,7 +47,7 @@ import Spokes from "~/components/ann/Spokes.vue";
       <card-info>
         <template #left>
           <h1 class="hs7">Бизнес-аудит</h1>
-          <img src="./img/illustration2.png" alt="">
+          <img src="/img/illustration2.png" alt="">
         </template>
         <template #right>
           <spokes
@@ -97,7 +97,7 @@ import Spokes from "~/components/ann/Spokes.vue";
       <card-info>
         <template #left>
           <h1 class="hs7">1С:Франчайзи</h1>
-          <img src="./img/illustration3.png" alt="">
+          <img src="/img/illustration3.png" alt="">
         </template>
         <template #right>
           <spokes
@@ -133,7 +133,7 @@ import Spokes from "~/components/ann/Spokes.vue";
       <card-info>
         <template #left>
           <h1 class="hs7">Телематика</h1>
-          <img src="./img/illustration4.png" alt="">
+          <img src="/img/illustration4.png" alt="">
         </template>
         <template #right>
           <spokes
